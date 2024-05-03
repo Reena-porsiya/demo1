@@ -1,0 +1,44 @@
+package com.demo;
+
+public class DiagonalSum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+		System.out.println("Input Matrix:");
+		for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+	int result = diagonalSum(matrix);
+    System.out.println("Diagonal Sum: " + result);
+
+
+}
+public static int diagonalSum(int[][] mat) {
+    int len = mat.length;
+    int sum = 0;
+
+    for (int i = 0; i < len; i++) {
+        // Sum of main diagonal elements
+        sum += mat[i][i];
+
+        // Sum of secondary diagonal elements
+        sum += mat[i][len - 1 - i];
+    }
+
+    // If the matrix has an odd size, subtract the center element (to avoid counting it twice)
+    if (len % 2 != 0) {
+        sum -= mat[len / 2][len / 2];
+    }
+
+    return sum;
+}
+}

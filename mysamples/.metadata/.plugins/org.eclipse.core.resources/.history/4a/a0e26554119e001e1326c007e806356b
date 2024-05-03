@@ -1,0 +1,59 @@
+class Student {
+    // Instance variable
+    String nameInstance;
+
+    // Static variable
+    static String nameStatic;
+
+    public Student(String name) {
+        this.nameInstance = name;
+    }
+
+    public void printInstanceVariable() {
+        System.out.println("Instance Variable - Student: " + nameInstance);
+    }
+
+    public static void printStaticVariable() {
+        System.out.println("Static Variable - Student: " + nameStatic);
+    }
+}
+
+public class MultithreadingExample {
+    public static void main(String[] args) throws InterruptedException {
+        // Creating instances
+        Student s1 = new Student("Reena");
+        Student s2 = new Student("Malar");
+        Student s3 = new Student("Pratheeksha");
+
+        // Setting different static names for each student
+        Student.nameStatic = "StaticName1"; // Set static name for s1
+        s2.nameStatic = "StaticName2"; // Set static name for s2
+        s3.nameStatic = "StaticName3"; // Set static name for s3
+
+        // Creating threads for instance variable
+        Thread t1 = new Thread(() -> s1.printInstanceVariable());
+        Thread t2 = new Thread(() -> s2.printInstanceVariable());
+        Thread t3 = new Thread(() -> s3.printInstanceVariable());
+
+        // Creating threads for static variable
+        Thread t4 = new Thread(Student::printStaticVariable);
+        Thread t5 = new Thread(Student::printStaticVariable);
+        Thread t6 = new Thread(Student::printStaticVariable);
+
+        // Starting all threads
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+        t6.start();
+
+        // Waiting for all threads to finish
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+        t5.join();
+        t6.join();
+    }
+}

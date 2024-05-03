@@ -1,0 +1,32 @@
+package com.demo;
+
+
+import java.util.LinkedList;
+//Problem Statement:https://leetcode.com/problems/reverse-linked-list/
+
+public class ReversedLinkedList {
+	
+	public Node head;
+
+	public static class Node {
+
+		Node next;
+
+		Object data;
+
+		Node(Object data) {
+			this.data = data;
+			next = null;
+		}
+	}
+	public static void main(String arg[]) {
+		
+		
+		
+		
+		
+		
+	
+	
+	}
+}

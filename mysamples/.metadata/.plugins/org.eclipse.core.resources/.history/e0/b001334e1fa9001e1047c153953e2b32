@@ -1,0 +1,46 @@
+package com.demo;
+//Problem Statement:https://leetcode.com/problems/matrix-diagonal-sum/
+public class DiagonalSum {
+
+	public static void main(String[] args) {
+		int[][] matrix1 = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        int result1 = diagonalSum(matrix1);
+        System.out.println("Diagonal Sum 1: " + result1);
+
+        int[][] matrix2 = {
+                {1, 1, 1, 1},
+                {1, 1, 1, 1},
+                {1, 1, 1, 1},
+                {1, 1, 1, 1}
+        };
+        int result2 = diagonalSum(matrix2);
+        System.out.println("Diagonal Sum 2: " + result2);
+
+        int[][] matrix3 = {
+                {5}
+        };
+        int result3 = diagonalSum(matrix3);
+        System.out.println("Diagonal Sum 3: " + result3);
+    }
+public static int diagonalSum(int[][] mat) {
+    int len = mat.length;
+    int sum = 0;
+
+    for (int i = 0; i < len; i++) {
+       
+        sum += mat[i][i];
+        sum += mat[i][len - 1 - i];
+    }
+
+   
+    if (len % 2 != 0) {
+        sum -= mat[len / 2][len / 2];
+    }
+
+    return sum;
+}
+}

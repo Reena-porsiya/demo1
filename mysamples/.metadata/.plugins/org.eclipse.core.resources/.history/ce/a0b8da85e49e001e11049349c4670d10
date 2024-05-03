@@ -1,0 +1,34 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class SumOfUniqueElement {
+    public static void main(String[] args) {
+        int[] nums1 = {1, 2, 3, 2};
+        System.out.println(sumOfUnique(nums1)); // Output: 4
+
+        int[] nums2 = {1, 1, 1, 1, 1};
+        System.out.println(sumOfUnique(nums2)); // Output: 0
+
+        int[] nums3 = {1, 2, 3, 4, 5};
+        System.out.println(sumOfUnique(nums3)); // Output: 15
+    }
+
+    public static int sumOfUnique(int[] nums) {
+        Set<Integer> uniqueSet = new HashSet<>();
+        int sum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+
+            if (uniqueSet.contains(num)) {
+                sum -= num; // If the element is already in the set, subtract it from the sum
+                uniqueSet.remove(num); // Remove the element from the set
+            } else {
+                sum += num; // If the element is not in the set, add it to the sum
+                uniqueSet.add(num); // Add the element to the set
+            }
+        }
+
+        return sum;
+    }
+}

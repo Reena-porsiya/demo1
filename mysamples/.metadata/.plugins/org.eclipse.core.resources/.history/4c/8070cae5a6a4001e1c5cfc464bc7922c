@@ -1,0 +1,22 @@
+package com.demo;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+//Problem Statement:https://leetcode.com/problems/reverse-linked-list/
+
+public class ReversedLinkedList {
+	public static void main(String arg[]) {
+		LinkedList<Integer>list = new LinkedList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		System.out.println("Linked list :" + list );
+		
+		Iterator<String> iterator = list.iterator();
+		
+	
+	
+	}
+}

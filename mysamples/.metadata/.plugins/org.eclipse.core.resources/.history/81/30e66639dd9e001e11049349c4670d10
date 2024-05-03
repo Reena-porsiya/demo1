@@ -1,0 +1,34 @@
+package com.demo;
+
+public class SumOfUniqueElement {
+    public static void main(String[] args) {
+        int[] nums1 = {1, 2, 3, 2};
+        System.out.println(sumOfUnique(nums1)); // Output: 4
+
+        int[] nums2 = {1, 1, 1, 1, 1};
+        System.out.println(sumOfUnique(nums2)); // Output: 0
+
+        int[] nums3 = {1, 2, 3, 4, 5};
+        System.out.println(sumOfUnique(nums3)); // Output: 15
+    }
+
+    public static int sumOfUnique(int[] nums) {
+        int[] occurrences = new int[1001]; // Assuming the range of numbers is up to 1000
+
+        // Count the occurrences of each element in the array
+        for (int i = 0; i < nums.length; i++) {
+            occurrences[nums[i]]++;
+        }
+
+        int sum = 0;
+
+        // Sum the unique elements
+        for (int i = 0; i < occurrences.length; i++) {
+            if (occurrences[i] == 1) {
+                sum += i;
+            }
+        }
+
+        return sum;
+    }
+}
