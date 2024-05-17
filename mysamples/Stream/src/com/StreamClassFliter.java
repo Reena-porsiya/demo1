@@ -5,6 +5,7 @@ import java.util.List;
 
 public class StreamClassFliter {
 
+
 	public static void main(String[] args) {
 		 List<Integer> list = Arrays.asList(3, 4, 6, 12, 20); 
 		 

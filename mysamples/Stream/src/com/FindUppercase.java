@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 public class FindUppercase {
 
+
 	public static void main(String[] args) {
 		 Stream<String> stream = Stream.of("Geeks", "fOr", "GEEKSQUIZ", "GeeksforGeeks"); 
 		 
